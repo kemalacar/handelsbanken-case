@@ -95,7 +95,7 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler {
      * @return prepared exception response.
      */
     @org.springframework.web.bind.annotation.ExceptionHandler(value = {NotFoundException.class})
-    protected ResponseEntity<Object> handleCustomException(IllegalArgumentException ex, WebRequest request) {
+    protected ResponseEntity<Object> handleCustomException(NotFoundException ex, WebRequest request) {
 
         log.error("Exception Handled :  ", ex);
 
