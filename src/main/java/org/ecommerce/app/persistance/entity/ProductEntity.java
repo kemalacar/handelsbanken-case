@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class ProductEntity {
 
     @Id
@@ -26,6 +27,10 @@ public class ProductEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "discount_id", referencedColumnName = "id")
     private DiscountEntity discount;
+
+    public boolean hasDiscount() {
+        return discount != null ;
+    }
 
 }
 
