@@ -6,7 +6,7 @@ spring:
 
   jpa:
     generate-ddl: true
-    show-sql: true
+    show-sql: false
     hibernate:
       ddl-auto: update
 
@@ -19,3 +19,7 @@ spring:
     username: sa
     password:
     driverClassName: org.h2.Driver
+
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} ; %-5level ; txID = [%X{txID}] ; %msg%n'
