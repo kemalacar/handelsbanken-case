@@ -1,6 +1,6 @@
 # Project Name
 
-Brief description of your Spring Boot project.
+Calculate checkout price  
 
 ## Table of Contents
 
