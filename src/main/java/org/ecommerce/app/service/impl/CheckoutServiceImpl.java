@@ -50,6 +50,12 @@ public class CheckoutServiceImpl implements CheckoutService {
         return CheckoutResponseDto.builder().price(totalPrice).build();
     }
 
+    /**
+     *
+     * @param productEntities list of {@link ProductEntity}
+     * @param productCountMap count map of requested products
+     * @return total checkout price
+     */
     private BigDecimal getProductsPrice(List<ProductEntity> productEntities, Map<String, Long> productCountMap) {
         BigDecimal totalPrice = BigDecimal.ZERO;
         for (ProductEntity productEntity : productEntities) {
@@ -60,8 +66,11 @@ public class CheckoutServiceImpl implements CheckoutService {
     }
 
     /**
-     * @param productEntity
-     * @param requestedQuantity
+     * Checkout price of product is  calculated here. That method checks for discount applied.
+     * If there is discount on product, check for added amount.
+     * 
+     * @param productEntity {@link ProductEntity}
+     * @param requestedQuantity amount of product
      * @return calculatedPrice
      */
     public BigDecimal getProductPrice(ProductEntity productEntity, long requestedQuantity) {
